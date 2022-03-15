@@ -44,15 +44,20 @@ export class TextChatComponent implements OnInit {
   }
 
   sendMessage() {
-    if (this.msg != "") {
-      this.usuario.id = this.ws.socket.id
-      let obj = {
-        message: this.msg,
-        user: this.usuario
-      }
+    if (this.usuario.nome != "") {
+      if (this.msg != "") {
+        this.usuario.id = this.ws.socket.id
+        let obj = {
+          message: this.msg,
+          user: this.usuario
+        }
 
-      this.ws.sendMessage(obj)
-      this.msg = ""
+        this.ws.sendMessage(obj)
+        this.msg = ""
+      }
+    }else{
+      alert("Informe o nome do Usuario!")
+      document.getElementById("inputUserName").focus()
     }
   }
 

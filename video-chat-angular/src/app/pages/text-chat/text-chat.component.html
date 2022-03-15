@@ -6,7 +6,7 @@
         <span class="input-group-text" id="addon-wrapping">
             <img [src]="sanitize(usuario.photo)" alt="" (click)="inputFile.click()">
         </span>
-        <input type="text" class="form-control" placeholder="Username" aria-label="Username" [(ngModel)]="usuario.nome" aria-describedby="addon-wrapping">
+        <input type="text" class="form-control" id="inputUserName" placeholder="Nome de Usuario" aria-label="Nome de Usuario" [(ngModel)]="usuario.nome" aria-describedby="addon-wrapping">
     </div>
     <div class="message-box p-3">
         <ng-container *ngFor="let msg of messages">
@@ -23,7 +23,7 @@
     <div class="row">
         <div class="form-group">
             <div class="input-group">
-                <input class="form-control form-control-sm" type="text" [(ngModel)]="msg" (keyup.enter)="sendMessage()">
+                <input class="form-control form-control-sm" type="text" placeholder="Escreva a mensagem..." [(ngModel)]="msg" (keyup.enter)="sendMessage()">
                 <button class="btn btn-success" [disabled]="!(msg)" (click)="sendMessage()">Enviar</button>
             </div>
         </div>
