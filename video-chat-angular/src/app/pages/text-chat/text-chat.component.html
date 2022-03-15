@@ -1,0 +1,31 @@
+<!-- <h5>Chat de Texto</h5> -->
+<input type="file" name="" #inputFile id="inputFile" (change)="changeUserImage($event)" hidden>
+
+<div class="container">
+    <div class="input-group flex-nowrap user-data">
+        <span class="input-group-text" id="addon-wrapping">
+            <img [src]="sanitize(usuario.photo)" alt="" (click)="inputFile.click()">
+        </span>
+        <input type="text" class="form-control" placeholder="Username" aria-label="Username" [(ngModel)]="usuario.nome" aria-describedby="addon-wrapping">
+    </div>
+    <div class="message-box p-3">
+        <ng-container *ngFor="let msg of messages">
+            <div class="row">
+                <div [ngClass]="(msg.user.id == usuario.id) ? 'text-align-right' : 'text-align-left'">
+                    <p><img class="msg-avatar" [src]="msg.user.photo" alt=""><strong>{{ msg.user.nome }}</strong></p>
+                    <p>{{msg.message}}</p>
+                </div>
+            </div>
+        </ng-container>
+
+    </div>
+    <hr>
+    <div class="row">
+        <div class="form-group">
+            <div class="input-group">
+                <input class="form-control form-control-sm" type="text" [(ngModel)]="msg" (keyup.enter)="sendMessage()">
+                <button class="btn btn-success" (click)="sendMessage()">Enviar</button>
+            </div>
+        </div>
+    </div>
+</div>
