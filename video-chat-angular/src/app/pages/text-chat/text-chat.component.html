@@ -12,7 +12,7 @@
         <ng-container *ngFor="let msg of messages">
             <div class="row">
                 <div [ngClass]="(msg.user.id == usuario.id) ? 'text-align-right' : 'text-align-left'">
-                    <p><img class="msg-avatar" [src]="msg.user.photo" alt=""><strong>{{ msg.user.nome }}</strong></p>
+                    <p><img class="msg-avatar" src="{{msg.user.photo}}" alt=""><strong>{{ msg.user.nome }}</strong></p>
                     <p>{{msg.message}}</p>
                 </div>
             </div>
