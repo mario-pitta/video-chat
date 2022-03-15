@@ -11,9 +11,9 @@
     <div class="message-box p-3">
         <ng-container *ngFor="let msg of messages">
             <div class="row">
-                <div [ngClass]="(msg.user.id == usuario.id) ? 'text-align-right' : 'text-align-left'">
-                    <p><img class="msg-avatar" src="{{msg.user.photo}}" alt=""><strong>{{ msg.user.nome }}</strong></p>
-                    <p>{{msg.message}}</p>
+                <div [ngClass]="(msg.user.id == usuario.id) ? ' justify-content-end' : 'justify-content-start'">
+                    <p [ngClass]="(msg.user.id == usuario.id) ? 'd-flex flex-row-reverse' : 'd-flex flex-row'"><img class="msg-avatar" src="{{msg.user.photo}}" alt=""><strong>{{ msg.user.nome }}</strong></p>
+                    <p [ngClass]="(msg.user.id == usuario.id) ? 'd-flex flex-row-reverse' : 'd-flex flex-row'">{{msg.message}}</p>
                 </div>
             </div>
         </ng-container>
