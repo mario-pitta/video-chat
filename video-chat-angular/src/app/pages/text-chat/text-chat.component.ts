@@ -24,7 +24,7 @@ export class TextChatComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    
+
 
     this.ws.messages.subscribe((message) => {
       this.messages.push(message)
@@ -44,17 +44,19 @@ export class TextChatComponent implements OnInit {
   }
 
   sendMessage() {
-    this.usuario.id=this.ws.socket.id
-    let obj = {
-      message: this.msg,
-      user: this.usuario
-    }
+    if (this.msg != "") {
+      this.usuario.id = this.ws.socket.id
+      let obj = {
+        message: this.msg,
+        user: this.usuario
+      }
 
-    this.ws.sendMessage(obj)
-    this.msg = ""
+      this.ws.sendMessage(obj)
+      this.msg = ""
+    }
   }
 
-  sanitize(string: string){
+  sanitize(string: string) {
     return this.sanitizer.bypassSecurityTrustResourceUrl(string)
   }
 
