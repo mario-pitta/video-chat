@@ -22,6 +22,6 @@ export class SocketService {
   }
   sendMessage(msg: any) {
     console.log(this.socket)
-    this.socket.emit("message",msg)
+    this.socket.send(msg)
   }
 }
